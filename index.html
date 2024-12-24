@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstanbul Gezi Planı: 26-28 Ocak 2025</title>
+    <style>
+        /* Modern CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Modern Değişkenler */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --header-bg: #1e293b;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Header Tasarımı */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: var(--transition);
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Modern Section Tasarımı */
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* Modern Liste Tasarımı */
+        .interactive-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .interactive-list li {
+            background: var(--card-bg);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .interactive-list li:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .interactive-list input[type="checkbox"] {
+            margin-right: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--primary-color);
+        }
+
+        /* Modern Link Tasarımı */
+        .map-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: var(--transition);
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .map-link:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Modern Popup Tasarımı */
+        #popup {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        #popup .content {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        #popup .avatars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        #popup .avatars div {
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        #popup .avatars div:hover {
+            transform: scale(1.05);
+        }
+
+        #popup .avatars img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        #popup button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        #popup button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .interactive-list li:hover {
+                transform: none;
+            }
+        }
+
+        #userPopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #userPopup .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .avatar-choices {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .avatar-choice {
+            text-align: center;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .avatar-choice:hover {
+            transform: translateY(-5px);
+            background-color: #f3f4f6;
+        }
+
+        .avatar-choice.selected {
+            background-color: #e5e7eb;
+            border: 2px solid #3b82f6;
+        }
+
+        .avatar-choice img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .avatar-choice.selected img {
+            border-color: #3b82f6;
+        }
+
+        .avatar-choice p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        #confirmButton {
+            width: 100%;
+            padding: 1rem;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #confirmButton:hover {
+            background-color: #2563eb;
+        }
+
+        #confirmButton:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        /* Seçim Butonları ve Kontroller */
+        .save-button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .save-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Yemek Seçimi Dropdown */
+        .meal-select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background-color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Seçimler Görüntüleme Alanı */
+        .selections-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .user-selections {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-selections {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 0.5rem;
+        }
+
+        .day-selections h4 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .meals,
+        .places {
+            margin: 1rem 0;
+        }
+
+        .places ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        .places li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .places li:before {
+            content: "•";
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="userPopup">
+        <div class="content">
+            <h3>Kimsin sen?</h3>
+            <div class="avatar-choices">
+                <div class="avatar-choice" data-user="Dodi">
+                    <img src="https://via.placeholder.com/120/0000FF/FFFFFF?text=D" alt="Dodi Avatar">
+                    <p>Dodi</p>
+                </div>
+                <div class="avatar-choice" data-user="Medi">
+                    <img src="https://via.placeholder.com/120/FF69B4/FFFFFF?text=M" alt="Medi Avatar">
+                    <p>Medi</p>
+                </div>
+            </div>
+            <button id="confirmButton">Seçimi Onayla</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>İstanbul Gezi Planı: 26-28 Ocak 2025</h1>
+        <nav>
+            <ul>
+                <li><a href="#day1">1. Gün</a></li>
+                <li><a href="#day2">2. Gün</a></li>
+                <li><a href="#day3">3. Gün</a></li>
+            </ul>
+        </nav>
+        <p>Gezilecek Yerler ve Yemek Önerileri</p>
+    </header>
+
+    <section id="day1">
+        <h2>1. Gün: Tarihi Yarımada Keşfi</h2>
+
+        <h3>Kahvaltı</h3>
+        <select class="meal-select breakfast-select">
+            <option value="">Seçiniz</option>
+            <option value="Van Kahvaltı Evi">Van Kahvaltı Evi (Cihangir)</option>
+            <option value="Namlı Gurme">Namlı Gurme (Karaköy)</option>
+            <option value="Mendel's">Mendel's (Beyoğlu)</option>
+        </select>
+
+        <h3>Gezilecek Yerler</h3>
+        <div class="places-selection">
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Ayasofya">
+                Ayasofya
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Topkapı Sarayı">
+                Topkapı Sarayı
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Basilica
+                    Cistern (Yerebatan Sarnıcı)">
+                Basilica
+                Cistern (Yerebatan Sarnıcı)
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Galata Kulesi">
+                Galata Kulesi
+            </label>
+        </div>
+
+        <h3>Öğle Yemeği</h3>
+        <select class="meal-select lunch-select">
+            <option value="">Seçiniz</option>
+            <option value="Sultanahmet Köftecisi">Sultanahmet Köftecisi</option>
+            <option value="Eminönü Balık Ekmek">Eminönü Balık Ekmek</option>
+            <option value="Dürümzade">Dürümzade (Beyoğlu)</option>
+        </select>
+
+        <h3>Akşam Yemeği</h3>
+        <select class="meal-select dinner-select">
+            <option value="">Seçiniz</option>
+            <option value="The Populist">The Populist (Galataport)</option>
+            <option value="Bira & Co">Bira & Co (Kadıköy)</option>
+            <option value="Peyote">Peyote (Beyoğlu)</option>
+        </select>
+    </section>
+
+    <section id="day2">
+        <h2>2. Gün: Boğaz ve Beşiktaş Çevresi</h2>
+
+        <h3>Kahvaltı:</h3>
+        <select class="meal-select breakfast-select">
+            <option value="">Seçiniz</option>
+            <option value="Çakmak Kahvaltı Salonu">Çakmak Kahvaltı Salonu (Beşiktaş)</option>
+            <option value="Karaköy Güllüoğlu">Karaköy Güllüoğlu</option>
+            <option value="Geyik Coffee">Geyik Coffee (Beşiktaş)</option>
+        </select>
+
+        <h3>Gezilecek Yerler:</h3>
+        <div class="places-selection">
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Dolmabahçe Sarayı">
+                Dolmabahçe Sarayı
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Beşiktaş Çarşısı ">
+                Beşiktaş Çarşısı
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Yıldız Parkı">Yıldız Parkı
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Kabataş'tan Boğaz Turu">
+                Kabataş'tan Boğaz Turu
+            </label>
+        </div>
+
+        <h3>Öğle Yemeği:</h3>
+        <select class="meal-select lunch-select">
+            <option value="">Seçiniz</option>
+            <option value="Karaköy Lokantası">Karaköy Lokantası</option>
+            <option value="Beşiktaş Çarşısı'nda bir esnaf lokantası">Beşiktaş Çarşısı'nda bir esnaf lokantası</option>
+            <option value="Mendel’s (Beyoğlu)">Mendel’s (Beyoğlu)</option>
+        </select>
+
+        <h3>Akşam Yemeği:</h3>
+        <select class="meal-select dinner-select">
+            <option value="">Seçiniz</option>
+            <option value="Craft Beer Lab (Beşiktaş)">Craft Beer Lab (Beşiktaş)</option>
+            <option value="The Brew (Karaköy)">The Brew (Karaköy)</option>
+            <option value="Bira Fabrikası (Kadıköy)">Bira Fabrikası (Kadıköy)</option>
+        </select>
+    </section>
+
+    <section id="day3">
+        <h2>3. Gün: Kadıköy ve Moda</h2>
+
+        <h3>Kahvaltı:</h3>
+        <select class="meal-select breakfast-select">
+            <option value="">Seçiniz</option>
+            <option value="Çınaraltı Kahvaltı Salonu (Moda)">Çınaraltı Kahvaltı Salonu (Moda)</option>
+            <option value="Moda Sahili'ndeki mekanlar">Moda Sahili'ndeki mekanlar</option>
+            <option value="Ağaç Ev (Kadıköy)">Ağaç Ev (Kadıköy)</option>
+        </select>
+
+        <h3>Gezilecek Yerler:</h3>
+        <div class="places-selection">
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Kadıköy Çarşısı">
+                Kadıköy Çarşısı
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Moda Sahili">
+                Moda Sahili
+            </label>
+            <label>
+                <input type="checkbox" class="place-checkbox" value="Haydarpaşa Garı">
+                Haydarpaşa Garı
+            </label>
+        </div>
+
+        <h3>Öğle Yemeği:</h3>
+        <select class="meal-select lunch-select">
+            <option value="">Seçiniz</option>
+            <option value="Kafé Pi (Kadıköy)">Kafé Pi (Kadıköy)</option>
+            <option value="Çakmak Kahvaltı Salonu">Çakmak Kahvaltı Salonu</option>
+            <option value="Kadıköy Çarşısı'nda sokak lezzetleri">Kadıköy Çarşısı'nda sokak lezzetleri</option>
+        </select>
+
+        <h3>Akşam Yemeği:</h3>
+        <select class="meal-select dinner-select">
+            <option value="">Seçiniz</option>
+            <option value="Corner Irish Pub (Kadıköy)">Corner Irish Pub (Kadıköy)</option>
+            <option value="Moda Sahili'ndeki küçük kafeler">Moda Sahili'ndeki küçük kafeler</option>
+            <option value="The Beer Hall (Kadıköy)">The Beer Hall (Kadıköy)</option>
+        </select>
+    </section>
+
+
+    <script>
+        // LocalStorage işlemleri için class
+        class StorageManager {
+            constructor() {
+                this.storageKey = 'travelPlannerData';
+            }
+
+            saveData(data) {
+                localStorage.setItem(this.storageKey, JSON.stringify(data));
+            }
+
+            loadData() {
+                const saved = localStorage.getItem(this.storageKey);
+                return saved ? JSON.parse(saved) : null;
+            }
+
+            clearData() {
+                localStorage.removeItem(this.storageKey);
+            }
+        }
+
+        // Checkbox durumlarını yöneten class
+        class CheckboxManager {
+            constructor() {
+                this.storage = new StorageManager();
+                this.checkboxStates = this.storage.loadData() || {};
+                this.init();
+            }
+
+            init() {
+                // Sayfa yüklendiğinde checkbox durumlarını yükle
+                this.loadCheckboxStates();
+
+                // Checkbox değişikliklerini dinle
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.addEventListener('change', (e) => {
+                        this.saveCheckboxState(e.target.id, e.target.checked);
+                    });
+                });
+            }
+
+            saveCheckboxState(id, checked) {
+                this.checkboxStates[id] = {
+                    checked: checked,
+                    timestamp: new Date().toISOString()
+                };
+                this.storage.saveData(this.checkboxStates);
+            }
+
+            loadCheckboxStates() {
+                Object.entries(this.checkboxStates).forEach(([id, data]) => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = data.checked;
+                    }
+                });
+            }
+
+            getSelectedCount() {
+                return Object.values(this.checkboxStates).filter(state => state.checked).length;
+            }
+        }
+
+        // Popup işlemleri
+        document.getElementById('confirmButton').onclick = function () {
+            document.getElementById('popup').style.display = 'none';
+        };
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxManager = new CheckboxManager();
+
+            // LocalStorage'dan veriyi yükle
+            const storageManager = new StorageManager();
+            const savedData = storageManager.loadData();
+
+            if (savedData) {
+                console.log('Kaydedilmiş veriler yüklendi:', savedData);
+            }
+        });
+
+        // Kullanıcı seçimi ve tercihleri yönetmek için class
+        class UserPreferences {
+            constructor() {
+                this.storage = new StorageManager();
+                this.selectedUser = this.storage.loadData()?.selectedUser || null;
+                this.init();
+            }
+
+            init() {
+                // Pop-up'ı göster
+                this.showPopup();
+
+                // Kullanıcı seçimi dinleyicileri
+                document.querySelectorAll('.avatar-choice').forEach(choice => {
+                    choice.addEventListener('click', (e) => {
+                        this.selectUser(e.currentTarget.dataset.user);
+                        document.querySelectorAll('.avatar-choice').forEach(c =>
+                            c.classList.remove('selected'));
+                        e.currentTarget.classList.add('selected');
+                    });
+                });
+
+                // Onay butonu dinleyicisi
+                const confirmButton = document.getElementById('confirmButton');
+                if (confirmButton) {
+                    confirmButton.addEventListener('click', () => {
+                        if (this.selectedUser) {
+                            this.confirmSelection();
+                        } else {
+                            alert('Lütfen bir kullanıcı seçin');
+                        }
+                    });
+                }
+
+                // Eğer önceden seçilmiş kullanıcı varsa
+                if (this.selectedUser) {
+                    this.updateHeader();
+                }
+            }
+
+            showPopup() {
+                const popup = document.getElementById('userPopup');
+                if (popup) {
+                    popup.style.display = 'flex';
+                }
+            }
+
+            selectUser(user) {
+                this.selectedUser = user;
+            }
+
+            confirmSelection() {
+                const popup = document.getElementById('userPopup');
+                if (popup && this.selectedUser) {
+                    // Seçimi kaydet
+                    this.storage.saveData({ selectedUser: this.selectedUser });
+
+                    // Pop-up'ı kapat
+                    popup.style.display = 'none';
+
+                    // Header'ı güncelle
+                    this.updateHeader();
+                }
+            }
+
+            updateHeader() {
+                const headerTitle = document.querySelector('header h1');
+                if (headerTitle) {
+                    headerTitle.textContent = `İstanbul Gezi Planı: ${this.selectedUser}'nin Tercihleri`;
+                }
+            }
+        }
+
+        class TravelSelections {
+            constructor() {
+                this.storage = new StorageManager();
+                this.init();
+            }
+
+            init() {
+                // Seçimleri kaydet butonu
+                const saveButton = document.createElement('button');
+                saveButton.id = 'saveSelections';
+                saveButton.className = 'save-button';
+                saveButton.textContent = 'Seçimleri Kaydet';
+                document.querySelector('header').appendChild(saveButton);
+
+                // Seçimleri göster container
+                const selectionsContainer = document.createElement('div');
+                selectionsContainer.id = 'selectionsDisplay';
+                selectionsContainer.className = 'selections-container';
+                document.body.appendChild(selectionsContainer);
+
+                this.addEventListeners();
+                this.loadSavedSelections();
+            }
+
+            addEventListeners() {
+                const saveButton = document.getElementById('saveSelections');
+                saveButton.addEventListener('click', () => this.saveAllSelections());
+            }
+
+            saveAllSelections() {
+                const currentUser = this.storage.loadData()?.selectedUser;
+                if (!currentUser) return;
+
+                const selections = {
+                    user: currentUser,
+                    timestamp: new Date().toISOString(),
+                    days: {
+                        day1: this.getDaySelections('day1'),
+                        day2: this.getDaySelections('day2'),
+                        day3: this.getDaySelections('day3')
+                    }
+                };
+
+                // Mevcut seçimleri yükle ve güncelle
+                let allSelections = this.storage.loadData()?.selections || [];
+                allSelections = allSelections.filter(s => s.user !== currentUser);
+                allSelections.push(selections);
+
+                this.storage.saveData({
+                    selectedUser: currentUser,
+                    selections: allSelections
+                });
+
+                this.displaySelections();
+            }
+
+            getDaySelections(dayId) {
+                const daySection = document.getElementById(dayId);
+                return {
+                    meals: {
+                        breakfast: daySection.querySelector('.breakfast-select')?.value,
+                        lunch: daySection.querySelector('.lunch-select')?.value,
+                        dinner: daySection.querySelector('.dinner-select')?.value
+                    },
+                    places: Array.from(daySection.querySelectorAll('.place-checkbox:checked'))
+                        .map(cb => cb.value)
+                };
+            }
+
+            displaySelections() {
+                const container = document.getElementById('selectionsDisplay');
+                const data = this.storage.loadData();
+
+                if (!data?.selections) return;
+
+                let html = '<h2>Kayıtlı Seçimler</h2>';
+
+                data.selections.forEach(selection => {
+                    html += `
+                <div class="user-selections">
+                    <h3>${selection.user}'nin Seçimleri</h3>
+                    <p>Son Güncelleme: ${new Date(selection.timestamp).toLocaleString('tr-TR')}</p>
+                    
+                    ${Object.entries(selection.days).map(([day, choices]) => `
+                        <div class="day-selections">
+                            <h4>${this.getDayTitle(day)}</h4>
+                            <div class="meals">
+                                <p><strong>Kahvaltı:</strong> ${choices.meals.breakfast || '-'}</p>
+                                <p><strong>Öğle Yemeği:</strong> ${choices.meals.lunch || '-'}</p>
+                                <p><strong>Akşam Yemeği:</strong> ${choices.meals.dinner || '-'}</p>
+                            </div>
+                            <div class="places">
+                                <p><strong>Gezilecek Yerler:</strong></p>
+                                <ul>
+                                    ${choices.places.map(place => `<li>${place}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+                });
+
+                container.innerHTML = html;
+            }
+
+            getDayTitle(day) {
+                const titles = {
+                    day1: '1. Gün - Tarihi Yarımada',
+                    day2: '2. Gün - Boğaz ve Beşiktaş',
+                    day3: '3. Gün - Kadıköy ve Moda'
+                };
+                return titles[day];
+            }
+
+            loadSavedSelections() {
+                const data = this.storage.loadData();
+                if (data?.selections) {
+                    this.displaySelections();
+                }
+            }
+        }
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', () => {
+            const userPrefs = new UserPreferences();
+            const travelSelections = new TravelSelections();
+        });
+    </script>
+</body>
+
+</html>
